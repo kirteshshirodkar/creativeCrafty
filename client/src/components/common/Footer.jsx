@@ -1,70 +1,72 @@
-import React from "react";
-import facebook from "../assets/images/facebook.png";
-import twitter from "../assets/images/twitter.png";
-import instagram from "../assets/images/instagram.png";
-import linkedin from "../assets/images/linkedin.png";
+
 
 export default function Footer() {
     return (
-        <footer className="site-footer">
-            <div className="footer-container">
+         <footer className="bg-white border-t">
+      <div className="max-w-7xl mx-auto px-4 py-12">
 
-                <div className="footer-top">
-                    <p>
-                        Top companies choose <a href="#">Your Business Name</a> to build
-                        in-demand career skills.
-                    </p>
-                </div>
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
-                <div className="footer-links">
-                    <div className="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
+          {/* Brand */}
+          <div>
+            <h2 className="text-2xl font-bold mb-3">
+              Furnish<span className="text-black">.</span>
+            </h2>
+            <p className="text-gray-600 text-sm">
+              Premium handcrafted furniture designed to bring comfort and
+              elegance to your home.
+            </p>
+          </div>
 
-                    <div className="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Help and Support</a></li>
-                            <li><a href="#">Affiliate</a></li>
-                            <li><a href="#">Investors</a></li>
-                        </ul>
-                    </div>
+          {/* Links */}
+          <div>
+            <h3 className="font-semibold mb-4">Company</h3>
+            <ul className="space-y-2 text-gray-600 text-sm">
+              <li className="hover:text-black cursor-pointer">About Us</li>
+              <li className="hover:text-black cursor-pointer">Products</li>
+              <li className="hover:text-black cursor-pointer">Blogs</li>
+              <li className="hover:text-black cursor-pointer">Contact</li>
+            </ul>
+          </div>
 
-                    <div className="footer-column">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Cookie Settings</a></li>
-                            <li><a href="#">Sitemap</a></li>
-                        </ul>
-                    </div>
+          {/* Support */}
+          <div>
+            <h3 className="font-semibold mb-4">Support</h3>
+            <ul className="space-y-2 text-gray-600 text-sm">
+              <li className="hover:text-black cursor-pointer">FAQs</li>
+              <li className="hover:text-black cursor-pointer">Shipping</li>
+              <li className="hover:text-black cursor-pointer">Returns</li>
+              <li className="hover:text-black cursor-pointer">Privacy Policy</li>
+            </ul>
+          </div>
 
-                    <div className="footer-column">
-                        <h4>Connect</h4>
-                        <div className="social-media">
-                            <a href="#"><img src={facebook} alt="Facebook" /></a>
-                            <a href="#"><img src={twitter} alt="Twitter" /></a>
-                            <a href="#"><img src={instagram} alt="Instagram" /></a>
-                            <a href="#"><img src={linkedin} alt="LinkedIn" /></a>
-                        </div>
-                    </div>
-                </div>
+          {/* Newsletter */}
+          <div>
+            <h3 className="font-semibold mb-4">Stay Updated</h3>
+            <p className="text-gray-600 text-sm mb-3">
+              Subscribe to get special offers & updates.
+            </p>
 
-                <div className="footer-bottom">
-                    <p>© 2024 Your Business Name. All rights reserved.</p>
-                    <div className="language-switcher">
-                        <a href="#">English</a>
-                    </div>
-                </div>
-
+            <div className="flex items-center border rounded-full overflow-hidden">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 py-2 w-full outline-none text-sm"
+              />
+              <button className="bg-black text-white px-5 py-2 text-sm">
+                Subscribe
+              </button>
             </div>
-        </footer>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="mt-10 pt-6 border-t text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} Furnish. All rights reserved.
+        </div>
+
+      </div>
+    </footer>
     );
 }
