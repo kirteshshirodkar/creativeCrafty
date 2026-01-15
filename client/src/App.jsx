@@ -8,7 +8,7 @@ export default function App() {
       <Navbar/>
       <div className='text-[200px]' >
         hey baby
-       <p>your sooo beautiful!</p>
+       <p>you're sooo beautiful!</p>
       </div>
       <Footer/>
     </div>
