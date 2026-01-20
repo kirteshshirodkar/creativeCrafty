@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AuthLayout from "../../components/auth/AuthLayout";
+import Navbar from "../../components/common/navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,41 +13,45 @@ const Login = () => {
   };
 
   return (
-    <AuthLayout title="Login to Your Account">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <div>
+      <Navbar />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <AuthLayout title="Login to Your Account">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <button
-          type="submit"
-          className="w-full bg-[#8b5e3c] text-white py-2 rounded-lg hover:bg-[#734c32] transition"
-        >
-          Login
-        </button>
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <p className="text-center text-sm">
-          Don’t have an account?{" "}
-          <a href="/register" className="text-[#8b5e3c] font-medium">
-            Register
-          </a>
-        </p>
-      </form>
-    </AuthLayout>
+          <button
+            type="submit"
+            className="w-full bg-[#8b5e3c] text-white py-2 rounded-lg hover:bg-[#734c32] transition"
+          >
+            Login
+          </button>
+
+          <p className="text-center text-sm">
+            Don’t have an account?{" "}
+            <a href="/register" className="text-[#8b5e3c] font-medium">
+              Register
+            </a>
+          </p>
+        </form>
+      </AuthLayout>
+    </div>
   );
 };
 
