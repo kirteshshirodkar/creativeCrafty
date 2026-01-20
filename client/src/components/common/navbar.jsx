@@ -10,7 +10,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <div className="text-2xl font-bold">
-              Furnish<span className="text-black">.</span>
+              creative<span className="text-black">.</span>
             </div>
 
             {/* Desktop Menu */}
