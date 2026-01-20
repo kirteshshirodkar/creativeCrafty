@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { ShoppingCart, Menu, X } from "lucide-react";
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <nav className="w-full border-b bg-white fixed">
