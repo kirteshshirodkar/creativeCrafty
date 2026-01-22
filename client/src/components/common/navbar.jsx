@@ -1,7 +1,12 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { ShoppingCart, User, Menu, X } from "lucide-react";
 
+=======
+import { ShoppingCart, Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom';
+>>>>>>> 3e607ed26ac5a78c81ba24ac18a268680ad545fa
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -11,9 +16,17 @@ export default function Navbar() {
   const userName = "Pratiksha";
 
   return (
+<<<<<<< HEAD
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur border-b">
       <nav className="max-w-7xl mx-auto px-6">
         <div className="h-16 flex items-center justify-between">
+=======
+    <div>
+      
+      <nav className="w-full border-b bg-white fixed">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+>>>>>>> 3e607ed26ac5a78c81ba24ac18a268680ad545fa
 
           {/* Logo */}
           <Link
@@ -23,6 +36,7 @@ export default function Navbar() {
             creative<span className="text-[#8b5e3c]">Crafty</span>
           </Link>
 
+<<<<<<< HEAD
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-700">
             {[
@@ -40,6 +54,16 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+=======
+            {/* Desktop Menu */}
+            <ul className="hidden md:flex items-center gap-8 font-medium">
+              <li className="border-b-2 border-black pb-1">Home</li>
+              <li className="hover:text-gray-600 cursor-pointer"><Link to="/about"> About Us</Link></li>
+              <li className="hover:text-gray-600 cursor-pointer">Products</li>
+              <li className="hover:text-gray-600 cursor-pointer">Blogs</li>
+              <li className="hover:text-gray-600 cursor-pointer">Contact</li>
+            </ul>
+>>>>>>> 3e607ed26ac5a78c81ba24ac18a268680ad545fa
 
           {/* Right Section */}
           <div className="hidden md:flex items-center gap-5">
