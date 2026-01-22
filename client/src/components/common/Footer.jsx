@@ -46,7 +46,7 @@ export default function Footer() {
                         <ul className="space-y-3 text-sm text-gray-600">
                             {
                                 footerLinks.map((items)=>(
-                                    <Link to={items.link}><li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
+                                    <Link key={items.id} to={items.link}><li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
                                 ))
 
                             }

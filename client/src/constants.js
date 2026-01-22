@@ -61,10 +61,5 @@ const products = [
     }
 ]
 
-footerSupportLinks[
-    {
-        
-    }
-]
 
 export default products;
