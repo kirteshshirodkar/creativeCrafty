@@ -1,72 +1,82 @@
-
+import { Instagram, Facebook } from "lucide-react";
 
 export default function Footer() {
     return (
-         <footer className="bg-white border-t">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+        <footer className="bg-[#fafafa] border-t mt-24">
+            <div className="max-w-7xl mx-auto px-6 py-16">
 
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+                {/* Main Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 
-          {/* Brand */}
-          <div>
-            <h2 className="text-2xl font-bold mb-3">
-              Furnish<span className="text-black">.</span>
-            </h2>
-            <p className="text-gray-600 text-sm">
-              Premium handcrafted furniture designed to bring comfort and
-              elegance to your home.
-            </p>
-          </div>
+                    {/* Brand */}
+                    <div className="md:col-span-2">
+                        <h2 className="text-2xl font-semibold tracking-wide">
+                            creative<span className="text-[#8b5e3c]">Crafty</span>
+                        </h2>
+                        <p className="mt-4 text-sm text-gray-600 max-w-sm leading-relaxed">
+                            A marketplace for authentic handmade products, crafted with love
+                            and care by skilled artisans across India.
+                        </p>
 
-          {/* Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li className="hover:text-black cursor-pointer">About Us</li>
-              <li className="hover:text-black cursor-pointer">Products</li>
-              <li className="hover:text-black cursor-pointer">Blogs</li>
-              <li className="hover:text-black cursor-pointer">Contact</li>
-            </ul>
-          </div>
+                        {/* Social Icons */}
+                        <div className="flex gap-4 mt-6">
+                            <a
+                                href="#"
+                                className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-[#8b5e3c] hover:text-white transition"
+                            >
+                                <Instagram size={18} />
+                            </a>
+                            <a
+                                href="#"
+                                className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-[#8b5e3c] hover:text-white transition"
+                            >
+                                <Facebook size={18} />
+                            </a>
+                        </div>
+                    </div>
 
-          {/* Support */}
-          <div>
-            <h3 className="font-semibold mb-4">Support</h3>
-            <ul className="space-y-2 text-gray-600 text-sm">
-              <li className="hover:text-black cursor-pointer">FAQs</li>
-              <li className="hover:text-black cursor-pointer">Shipping</li>
-              <li className="hover:text-black cursor-pointer">Returns</li>
-              <li className="hover:text-black cursor-pointer">Privacy Policy</li>
-            </ul>
-          </div>
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="text-sm font-semibold mb-5 uppercase tracking-wide">
+                            Quick Links
+                        </h3>
+                        <ul className="space-y-3 text-sm text-gray-600">
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Home</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">About Us</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Products</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Blogs</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Contact</li>
+                        </ul>
+                    </div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-semibold mb-4">Stay Updated</h3>
-            <p className="text-gray-600 text-sm mb-3">
-              Subscribe to get special offers & updates.
-            </p>
+                    {/* Support */}
+                    <div>
+                        <h3 className="text-sm font-semibold mb-5 uppercase tracking-wide">
+                            Support
+                        </h3>
+                        <ul className="space-y-3 text-sm text-gray-600">
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Help Center</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Report Issue</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Privacy Policy</li>
+                            <li className="hover:text-[#8b5e3c] cursor-pointer">Terms & Conditions</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div className="flex items-center border rounded-full overflow-hidden">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2 w-full outline-none text-sm"
-              />
-              <button className="bg-black text-white px-5 py-2 text-sm">
-                Subscribe
-              </button>
+                {/* Divider */}
+                <div className="border-t my-10" />
+
+                {/* Bottom Bar */}
+                <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                    <p>
+                        © {new Date().getFullYear()} creativeCrafty. All rights reserved.
+                    </p>
+                    <p className="tracking-wide">
+                        Crafted with ❤️ for handmade lovers
+                    </p>
+                </div>
+
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="mt-10 pt-6 border-t text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Furnish. All rights reserved.
-        </div>
-
-      </div>
-    </footer>
+        </footer>
     );
 }

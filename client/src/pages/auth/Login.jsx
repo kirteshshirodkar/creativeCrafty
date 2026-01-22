@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AuthLayout from "../../components/auth/AuthLayout";
-import Navbar from "../../components/common/navbar";
+import Navbar from "../../components/common/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
