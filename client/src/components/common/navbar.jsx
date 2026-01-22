@@ -11,9 +11,17 @@ export default function Navbar() {
   const userName = "Pratiksha";
 
   return (
+
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur border-b">
       <nav className="max-w-7xl mx-auto px-6">
         <div className="h-16 flex items-center justify-between">
+
+    <div>
+      
+      <nav className="w-full border-b bg-white fixed">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+
 
           {/* Logo */}
           <Link
@@ -131,6 +139,8 @@ export default function Navbar() {
           </ul>
         </div>
       )}
+      </nav>
     </header>
   );
 }
+ 

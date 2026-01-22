@@ -1,4 +1,7 @@
 import { Instagram, Facebook } from "lucide-react";
+import { Link, Links } from "react-router-dom";
+import { footerLinks } from "../../constants";
+
 
 export default function Footer() {
     return (
@@ -41,11 +44,14 @@ export default function Footer() {
                             Quick Links
                         </h3>
                         <ul className="space-y-3 text-sm text-gray-600">
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Home</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">About Us</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Products</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Blogs</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Contact</li>
+                            {
+                                footerLinks.map((items)=>(
+                                    <Link to={items.link}><li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
+                                ))
+
+                            }
+                            
+                            
                         </ul>
                     </div>
 
