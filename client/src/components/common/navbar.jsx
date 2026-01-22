@@ -10,36 +10,27 @@ export default function Navbar() {
   const isLoggedIn = true;
   const userName = "Pratiksha";
 
-  return (
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Products", path: "/products" },
+    { name: "Blogs", path: "/blogs" },
+    { name: "Contact", path: "/contact" },
+  ];
 
+  return (
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur border-b">
       <nav className="max-w-7xl mx-auto px-6">
         <div className="h-16 flex items-center justify-between">
 
-    <div>
-      
-      <nav className="w-full border-b bg-white fixed">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-
-
           {/* Logo */}
-          <Link
-            to="/"
-            className="text-xl font-semibold tracking-wide"
-          >
+          <Link to="/" className="text-xl font-semibold tracking-wide">
             creative<span className="text-[#8b5e3c]">Crafty</span>
           </Link>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-700">
-            {[
-              { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
-              { name: "Products", path: "/products" },
-              { name: "Blogs", path: "/blogs" },
-              { name: "Contact", path: "/contact" },
-            ].map((item) => (
+            {navLinks.map((item) => (
               <li
                 key={item.name}
                 className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-[#8b5e3c] after:transition-all hover:after:w-full"
@@ -60,7 +51,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Account */}
+            {/* Profile / Login */}
             {!isLoggedIn ? (
               <Link
                 to="/login"
@@ -99,7 +90,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -113,16 +104,21 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white border-t">
           <ul className="flex flex-col gap-6 px-6 py-6 text-sm font-medium text-gray-700">
-            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-            <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-            <Link to="/blogs" onClick={() => setMenuOpen(false)}>Blogs</Link>
-            <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+            {navLinks.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
 
             <div className="flex items-center gap-4 pt-4">
               <Link to="/cart">
                 <ShoppingCart size={20} />
               </Link>
+
               {!isLoggedIn ? (
                 <Link
                   to="/login"
@@ -131,7 +127,11 @@ export default function Navbar() {
                   Get Started
                 </Link>
               ) : (
-                <Link to="/profile" className="flex items-center gap-2">
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-2"
+                  onClick={() => setMenuOpen(false)}
+                >
                   <User size={18} /> Profile
                 </Link>
               )}
@@ -139,8 +139,6 @@ export default function Navbar() {
           </ul>
         </div>
       )}
-      </nav>
     </header>
   );
 }
- 
