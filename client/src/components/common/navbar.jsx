@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from "react";
 import { ShoppingCart, Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <div>
+      
       <nav className="w-full border-b bg-white fixed">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
@@ -17,7 +19,7 @@ export default function Navbar() {
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-center gap-8 font-medium">
               <li className="border-b-2 border-black pb-1">Home</li>
-              <li className="hover:text-gray-600 cursor-pointer">About Us</li>
+              <li className="hover:text-gray-600 cursor-pointer"><Link to="/about"> About Us</Link></li>
               <li className="hover:text-gray-600 cursor-pointer">Products</li>
               <li className="hover:text-gray-600 cursor-pointer">Blogs</li>
               <li className="hover:text-gray-600 cursor-pointer">Contact</li>
