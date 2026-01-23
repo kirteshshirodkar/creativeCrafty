@@ -9,9 +9,9 @@ export default function Contact() {
 
 
             {/* HERO */}
-            <section className="bg-[#f9f7f4]">
+            <section className="bg-[#f9f7f4] ">
                 <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-                    <h1 className="text-4xl font-semibold mb-4">
+                    <h1 className="text-4xl font-semibold mt-6 mb-4">
                         Get in Touch
                     </h1>
                     <p className="text-gray-600 max-w-xl mx-auto">
