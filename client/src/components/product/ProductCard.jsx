@@ -13,11 +13,12 @@ export default function ProductCard({
   return (
     <div
       className="
-        group relative bg-white rounded-3xl overflow-hidden
-        border border-gray-100
-        shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-        hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)]
-        transition-all duration-300
+        group relative overflow-hidden
+        rounded-[28px] bg-white
+        border border-gray-100/70
+        shadow-[0_18px_45px_rgba(0,0,0,0.08)]
+        hover:shadow-[0_35px_80px_rgba(0,0,0,0.16)]
+        transition-all duration-500
         hover:-translate-y-2
       "
     >
@@ -26,74 +27,86 @@ export default function ProductCard({
         onClick={() => setWishlisted(!wishlisted)}
         className="
           absolute top-4 right-4 z-10
-          bg-white/90 backdrop-blur
-          w-9 h-9 rounded-full
+          h-10 w-10 rounded-full
+          bg-white/70 backdrop-blur-md
           flex items-center justify-center
-          shadow-md hover:scale-110 transition
+          shadow-md
+          hover:scale-110 hover:shadow-lg
+          transition
         "
       >
         <Heart
           size={18}
           className={
             wishlisted
-              ? "fill-pink-300 text-pink-400"
+              ? "fill-pink-400 text-pink-500"
               : "text-gray-500"
           }
         />
       </button>
 
       {/* Image */}
-      <div className="relative overflow-hidden rounded-b-none">
+      <div className="relative overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
           className="
-            w-full h-60 object-cover
-            transition-transform duration-500
+            h-64 w-full object-cover
+            transition-transform duration-700
             group-hover:scale-110
           "
         />
 
-        {/* subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+        {/* Luxury gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/5 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
-        <div>
-          <h3 className="text-[15px] font-semibold text-gray-800">
+      <div className="p-6 space-y-5">
+        {/* Title + Price */}
+        <div className="space-y-1">
+          <h3 className="text-[15px] font-semibold text-gray-800 tracking-wide">
             {product.name}
           </h3>
-          <p className="text-[#8b5e3c] font-bold text-lg">
+          <p className="text-lg font-bold text-[#8b5e3c]">
             ₹{product.price}
           </p>
         </div>
 
         {/* Quantity + Cart */}
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-4">
           {/* Quantity */}
           <div
             className="
-              flex items-center gap-3
-              border rounded-full px-4 py-2
+              flex items-center gap-4
+              rounded-full px-4 py-2
               bg-gray-50
+              border border-gray-200
               shadow-inner
             "
           >
             <button
               onClick={() => onDecrease(product.id)}
-              className="hover:text-[#8b5e3c] transition"
+              className="
+                text-gray-600
+                hover:text-[#8b5e3c]
+                transition
+              "
             >
               <Minus size={14} />
             </button>
 
-            <span className="text-sm font-medium">
+            <span className="text-sm font-semibold text-gray-800">
               {quantity}
             </span>
 
             <button
               onClick={() => onIncrease(product.id)}
-              className="hover:text-[#8b5e3c] transition"
+              className="
+                text-gray-600
+                hover:text-[#8b5e3c]
+                transition
+              "
             >
               <Plus size={14} />
             </button>
@@ -104,12 +117,14 @@ export default function ProductCard({
             onClick={() => onAddToCart(product, quantity)}
             className="
               flex items-center gap-2
-              bg-[#8b5e3c] text-white
-              px-5 py-2 rounded-full
-              text-sm font-medium
-              shadow-lg shadow-[#8b5e3c]/30
-              hover:opacity-90 hover:scale-105
-              transition
+              rounded-full
+              bg-[#8b5e3c]
+              px-5 py-2
+              text-sm font-medium text-white
+              shadow-[0_12px_30px_rgba(139,94,60,0.35)]
+              hover:shadow-[0_18px_40px_rgba(139,94,60,0.5)]
+              hover:scale-105
+              transition-all
             "
           >
             <ShoppingCart size={16} />
@@ -117,6 +132,17 @@ export default function ProductCard({
           </button>
         </div>
       </div>
+
+      {/* Soft shine on hover */}
+      <div
+        className="
+          pointer-events-none absolute inset-0
+          opacity-0 group-hover:opacity-100
+          transition
+          bg-gradient-to-tr
+          from-white/10 via-transparent to-white/20
+        "
+      />
     </div>
   );
 }

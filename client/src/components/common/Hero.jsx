@@ -1,24 +1,43 @@
 import heroImg from "../../assets/images/hero.jpg";
+
 const Hero = () => {
     return (
-        <section
-            className="h-[100vh] bg-cover bg-center flex items-center"
-            style={{
-                backgroundImage: `url(${heroImg})`,
-            }}
-        >
-            <div className="bg-black/50 w-full h-full flex items-center ">
-                <div className="max-w-6xl mx-auto px-7 text-white">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <section className="relative min-h-screen flex items-center bg-[#FAF7F3]">
+            {/* Image */}
+            <div className="absolute inset-0">
+                <img
+                    src={heroImg}
+                    alt="Handcrafted products"
+                    className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+            </div>
 
-                        Handmade with Love
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div className="text-white">
+                    <span className="inline-block mb-4 px-4 py-1 rounded-full bg-white/20 text-sm tracking-wide">
+                        Authentic • Handmade • Sustainable
+                    </span>
+
+                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                        Crafted with
+                        <span className="block text-[#C7A17A]">Heart & Heritage</span>
                     </h1>
-                    <p className="text-lg md:text-xl mb-6 max-w-xl">
-                        Discover authentic handcrafted products made by skilled artisans.
+
+                    <p className="mt-6 max-w-lg text-lg text-gray-200">
+                        Explore thoughtfully handcrafted products made by skilled artisans,
+                        blending tradition with modern elegance.
                     </p>
-                    <button className="bg-[#8b5e3c] px-6 py-3 rounded-lg hover:bg-[#734c32] transition">
-                        Shop Now
-                    </button>
+
+                    <div className="mt-8 flex gap-4">
+                        <button className="px-8 py-3 rounded-full bg-[#C7A17A] text-black font-medium hover:opacity-90 transition">
+                            Shop Collection
+                        </button>
+                        <button className="px-8 py-3 rounded-full border border-white/40 hover:bg-white/10 transition">
+                            Learn More
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

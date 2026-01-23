@@ -6,7 +6,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
-  // mock auth (replace later)
   const isLoggedIn = true;
   const userName = "Pratiksha";
 
@@ -19,67 +18,58 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur border-b">
+    <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/40">
       <nav className="max-w-7xl mx-auto px-6">
         <div className="h-16 flex items-center justify-between">
 
           {/* Logo */}
           <Link to="/" className="text-xl font-semibold tracking-wide">
-            creative<span className="text-[#8b5e3c]">Crafty</span>
+            Creative<span className="text-[#C7A17A]">Crafty</span>
           </Link>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-700">
             {navLinks.map((item) => (
-              <li
-                key={item.name}
-                className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-[#8b5e3c] after:transition-all hover:after:w-full"
-              >
-                <Link to={item.path}>{item.name}</Link>
+              <li key={item.name} className="relative group">
+                <Link to={item.path} className="hover:text-[#6D4C41] transition">
+                  {item.name}
+                </Link>
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#C7A17A] transition-all group-hover:w-full" />
               </li>
             ))}
           </ul>
 
-          {/* Right Section */}
+          {/* Right */}
           <div className="hidden md:flex items-center gap-5">
-
             {/* Cart */}
             <Link to="/cart" className="relative">
               <ShoppingCart size={20} />
-              <span className="absolute -top-2 -right-2 bg-[#8b5e3c] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-[#6D4C41] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
                 0
               </span>
             </Link>
 
-            {/* Profile / Login */}
-            {!isLoggedIn ? (
-              <Link
-                to="/login"
-                className="px-5 py-2 text-sm rounded-full bg-[#8b5e3c] text-white hover:opacity-90 transition"
-              >
-                Get Started
-              </Link>
-            ) : (
+            {/* Profile */}
+            {isLoggedIn ? (
               <div className="relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="w-9 h-9 rounded-full bg-[#8b5e3c] text-white flex items-center justify-center font-medium"
+                  className="w-9 h-9 rounded-full bg-[#6D4C41] text-white flex items-center justify-center"
                 >
                   {userName[0]}
                 </button>
 
                 {profileOpen && (
-                  <div className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-lg border overflow-hidden">
+                  <div className="absolute right-0 mt-3 w-44 bg-white rounded-2xl shadow-xl border overflow-hidden">
                     <div className="px-4 py-3 text-sm font-semibold">
                       {userName}
                     </div>
-                    <div className="border-t" />
                     <Link
                       to="/profile"
-                      className="block px-4 py-2 text-sm hover:bg-gray-50 flex items-center gap-2"
+                      className="block px-4 py-2 text-sm hover:bg-gray-50"
                       onClick={() => setProfileOpen(false)}
                     >
-                      <User size={16} /> Profile
+                      Profile
                     </Link>
                     <button className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50">
                       Logout
@@ -87,14 +77,18 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+            ) : (
+              <Link
+                to="/login"
+                className="px-5 py-2 text-sm rounded-full bg-[#6D4C41] text-white"
+              >
+                Get Started
+              </Link>
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
+          {/* Mobile Toggle */}
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
             {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
@@ -103,7 +97,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t">
-          <ul className="flex flex-col gap-6 px-6 py-6 text-sm font-medium text-gray-700">
+          <ul className="flex flex-col gap-6 px-6 py-6 text-sm">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
@@ -113,29 +107,6 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-
-            <div className="flex items-center gap-4 pt-4">
-              <Link to="/cart">
-                <ShoppingCart size={20} />
-              </Link>
-
-              {!isLoggedIn ? (
-                <Link
-                  to="/login"
-                  className="px-4 py-2 rounded-full bg-[#8b5e3c] text-white"
-                >
-                  Get Started
-                </Link>
-              ) : (
-                <Link
-                  to="/profile"
-                  className="flex items-center gap-2"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <User size={18} /> Profile
-                </Link>
-              )}
-            </div>
           </ul>
         </div>
       )}

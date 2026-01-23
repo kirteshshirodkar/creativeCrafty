@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductGrid from "../../components/product/ProductGrid";
-import Navbar from "../../components/common/navbar";
+import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 import pro1 from "../../assets/images/pro1.jpg"
 import pro2 from "../../assets/images/pro2.jpg"
