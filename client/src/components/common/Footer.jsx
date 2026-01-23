@@ -1,6 +1,6 @@
 import { Instagram, Facebook } from "lucide-react";
 import { Link, Links } from "react-router-dom";
-import { footerLinks } from "../../constants";
+import { footerLinks, supportLinks } from "../../constants";
 
 
 export default function Footer() {
@@ -61,10 +61,15 @@ export default function Footer() {
                             Support
                         </h3>
                         <ul className="space-y-3 text-sm text-gray-600">
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Help Center</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Report Issue</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Privacy Policy</li>
-                            <li className="hover:text-[#8b5e3c] cursor-pointer">Terms & Conditions</li>
+                            {
+                                supportLinks.map((items)=>(
+                                    <Link key={items.id} to={items.link}> <li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
+
+                                ))
+                            }
+                            
+                           
+                            
                         </ul>
                     </div>
                 </div>

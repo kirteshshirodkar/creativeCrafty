@@ -61,5 +61,28 @@ const products = [
     }
 ]
 
+export const supportLinks=[
+    {
+        id:1,
+        name:"Help Center",
+        link:"/helpCenter",
+    },
+    {
+        id:2,
+        name:"Report Issue",
+        link:"/reportIssue",
+    },
+    {
+        id:3,
+        name:"Privacy Policy",
+        link:"/privacyPolicy",
+    },
+    {
+        id:4,
+        link:"Terms & Conditions",
+        name:"/terms&Conditions",
+    }
+]
+
 
 export default products;
