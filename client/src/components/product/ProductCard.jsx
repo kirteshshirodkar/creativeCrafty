@@ -36,7 +36,7 @@ export default function ProductCard({
           size={18}
           className={
             wishlisted
-              ? "fill-red-500 text-red-500"
+              ? "fill-pink-300 text-pink-400"
               : "text-gray-500"
           }
         />
