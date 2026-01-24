@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 import AuthLayout from "../../components/auth/AuthLayout";
 import Navbar from "../../components/common/Navbar";
 
@@ -12,45 +13,70 @@ const Login = () => {
     // Firebase login logic here
   };
 
+  const handleGoogleLogin = () => {
+    console.log("Google login clicked");
+    // Add Google login logic here
+  };
+
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-[#738994] to-[#f4e1c1] flex flex-col">
       <Navbar />
 
-      <AuthLayout title="Login to Your Account">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+      <div className="flex-grow flex items-center justify-center px-4">
+        <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
+          <h2 className="text-3xl font-semibold text-[#3b2f2f] text-center mb-6 tracking-wide">
+            Welcome Back
+          </h2>
 
           <button
-            type="submit"
-            className="w-full bg-[#8b5e3c] text-white py-2 rounded-lg hover:bg-[#734c32] transition"
+            onClick={handleGoogleLogin}
+            className="w-full flex items-center justify-center gap-3 py-2 mb-6 rounded-lg bg-white hover:bg-gray-100 transition shadow-md"
           >
-            Login
+            <FcGoogle size={24} />
+            <span className="text-[#3b2f2f] font-medium">Login with Google</span>
           </button>
 
-          <p className="text-center text-sm">
+          <div className="relative flex items-center mb-6">
+            <hr className="flex-grow border-[#a98c5b]" />
+            <span className="px-3 text-[#a98c5b] text-sm">OR</span>
+            <hr className="flex-grow border-[#a98c5b]" />
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-5 py-3 rounded-xl bg-white/30 placeholder-[#8c6d4b] text-[#3b2f2f] focus:outline-none focus:ring-2 focus:ring-[#bfa24d] backdrop-blur-sm border border-white/30 transition"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full px-5 py-3 rounded-xl bg-white/30 placeholder-[#8c6d4b] text-[#3b2f2f] focus:outline-none focus:ring-2 focus:ring-[#bfa24d] backdrop-blur-sm border border-white/30 transition"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-xl bg-[#bfa24d] hover:bg-[#a88f3b] text-[#3b2f2f] font-semibold shadow-lg transition transform hover:scale-105"
+            >
+              Login
+            </button>
+          </form>
+
+          <p className="text-center text-[#3b2f2f] mt-5 text-sm">
             Don’t have an account?{" "}
-            <a href="/register" className="text-[#8b5e3c] font-medium">
+            <a href="/register" className="text-[#bfa24d] font-medium hover:underline">
               Register
             </a>
           </p>
-        </form>
-      </AuthLayout>
+        </div>
+      </div>
     </div>
   );
 };
