@@ -121,7 +121,7 @@ export default function Products() {
               className={`px-5 py-2 rounded-full text-sm border transition
               ${selectedCategory === category
                   ? "bg-[#8b5e3c] text-white"
-                  : "hover:bg-gray-100"
+                  : "hover:bg-pink-100"
                 }`}
             >
               {category}
