@@ -1,148 +1,68 @@
-import { Plus, Minus, ShoppingCart, Heart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-export default function ProductCard({
-  product,
-  quantity,
-  onIncrease,
-  onDecrease,
-  onAddToCart,
-}) {
-  const [wishlisted, setWishlisted] = useState(false);
+const ProductCard = ({ product, addToCart }) => {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
   return (
     <div
-      className="
-        group relative overflow-hidden
-        rounded-[28px] bg-white
-        border border-gray-100/70
-        shadow-[0_18px_45px_rgba(0,0,0,0.08)]
-        hover:shadow-[0_35px_80px_rgba(0,0,0,0.16)]
-        transition-all duration-500
-        hover:-translate-y-2
-      "
+      className="group relative"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setPos({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }}
     >
-      {/* Wishlist */}
-      <button
-        onClick={() => setWishlisted(!wishlisted)}
-        className="
-          absolute top-4 right-4 z-10
-          h-10 w-10 rounded-full
-          bg-white/70 backdrop-blur-md
-          flex items-center justify-center
-          shadow-md
-          hover:scale-110 hover:shadow-lg
-          transition
-        "
-      >
-        <Heart
-          size={18}
-          className={
-            wishlisted
-              ? "fill-pink-400 text-pink-500"
-              : "text-gray-500"
-          }
-        />
-      </button>
+      {/* Cursor glow */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+        style={{
+          background: `radial-gradient(600px at ${pos.x}px ${pos.y}px, rgba(176,137,104,0.15), transparent 40%)`,
+        }}
+      />
 
       {/* Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden rounded-2xl bg-[#1A1916]">
         <img
           src={product.image}
           alt={product.name}
           className="
-            h-64 w-full object-cover
-            transition-transform duration-700
-            group-hover:scale-110
+            w-full h-[420px] object-cover
+            grayscale group-hover:grayscale-0
+            scale-105 group-hover:scale-100
+            transition-all duration-700 ease-out
           "
         />
 
-        {/* Luxury gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/5 to-transparent" />
-      </div>
-
-      {/* Content */}
-      <div className="p-6 space-y-5">
-        {/* Title + Price */}
-        <div className="space-y-1">
-          <h3 className="text-[15px] font-semibold text-gray-800 tracking-wide">
-            {product.name}
-          </h3>
-          <p className="text-lg font-bold text-[#8b5e3c]">
-            ₹{product.price}
-          </p>
-        </div>
-
-        {/* Quantity + Cart */}
-        <div className="flex items-center justify-between gap-4">
-          {/* Quantity */}
-          <div
-            className="
-              flex items-center gap-4
-              rounded-full px-4 py-2
-              bg-gray-50
-              border border-gray-200
-              shadow-inner
-            "
-          >
-            <button
-              onClick={() => onDecrease(product.id)}
-              className="
-                text-gray-600
-                hover:text-[#8b5e3c]
-                transition
-              "
-            >
-              <Minus size={14} />
-            </button>
-
-            <span className="text-sm font-semibold text-gray-800">
-              {quantity}
-            </span>
-
-            <button
-              onClick={() => onIncrease(product.id)}
-              className="
-                text-gray-600
-                hover:text-[#8b5e3c]
-                transition
-              "
-            >
-              <Plus size={14} />
-            </button>
-          </div>
-
-          {/* Add to Cart */}
+        {/* Hover actions */}
+        <div className="absolute inset-0 flex items-end justify-center pb-10 opacity-0 group-hover:opacity-100 transition duration-500">
           <button
-            onClick={() => onAddToCart(product, quantity)}
-            className="
-              flex items-center gap-2
-              rounded-full
-              bg-[#8b5e3c]
-              px-5 py-2
-              text-sm font-medium text-white
-              shadow-[0_12px_30px_rgba(139,94,60,0.35)]
-              hover:shadow-[0_18px_40px_rgba(139,94,60,0.5)]
-              hover:scale-105
-              transition-all
-            "
+            onClick={() => addToCart(product)}
+            className="flex items-center gap-2 bg-[#EDE6DD] text-[#1A1916]
+              px-6 py-3 rounded-full text-sm tracking-wide
+              hover:bg-[#B08968] transition"
           >
-            <ShoppingCart size={16} />
-            Add
+            <ShoppingBag size={16} />
+            Add to Cart
           </button>
         </div>
       </div>
 
-      {/* Soft shine on hover */}
-      <div
-        className="
-          pointer-events-none absolute inset-0
-          opacity-0 group-hover:opacity-100
-          transition
-          bg-gradient-to-tr
-          from-white/10 via-transparent to-white/20
-        "
-      />
+      {/* Text */}
+      <div className="mt-6 text-center">
+        <h3 className="text-lg text-[#EDE6DD] font-light tracking-wide">
+          {product.name}
+        </h3>
+
+        {/* Price only on hover */}
+        <p className="mt-2 text-sm text-[#B08968] opacity-0 group-hover:opacity-100 transition duration-500">
+          {product.price}
+        </p>
+      </div>
     </div>
   );
-}
+};
+
+export default ProductCard;

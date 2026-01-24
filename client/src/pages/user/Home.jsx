@@ -3,6 +3,7 @@ import Hero from "../../components/common/Hero";
 import InfoSection from "../../components/common/InfoSection";
 import Navbar from "../../components/common/Navbar";
 
+
 import ProductSection from "../../components/product/ProductSection";
 
 
@@ -13,6 +14,7 @@ const Home = () => {
             <Navbar />
             <Hero />
             <ProductSection />
+
 
             <InfoSection />
             <Footer />

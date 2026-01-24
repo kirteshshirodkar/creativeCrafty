@@ -1,37 +1,38 @@
 import { Instagram, Facebook } from "lucide-react";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { footerLinks, supportLinks } from "../../constants";
-
 
 export default function Footer() {
     return (
-        <footer className="bg-[#fafafa] border-t mt-24">
-            <div className="max-w-7xl mx-auto px-6 py-16">
+        <footer className="bg-[#1C1A17] text-[#EDE6DD] mt-24">
+            <div className="max-w-7xl mx-auto px-6 py-20">
 
-                {/* Main Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                {/* Top Section */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
 
                     {/* Brand */}
                     <div className="md:col-span-2">
-                        <h2 className="text-2xl font-semibold tracking-wide">
-                            creative<span className="text-[#8b5e3c]">Crafty</span>
+                        <h2 className="text-3xl font-semibold tracking-wide">
+                            creative
+                            <span className="text-[#B08968]">Crafty</span>
                         </h2>
-                        <p className="mt-4 text-sm text-gray-600 max-w-sm leading-relaxed">
-                            A marketplace for authentic handmade products, crafted with love
-                            and care by skilled artisans across India.
+
+                        <p className="mt-5 text-sm text-[#A89F94] max-w-md leading-relaxed">
+                            A curated marketplace for authentic handmade creations,
+                            crafted with passion by skilled artisans across India.
                         </p>
 
-                        {/* Social Icons */}
-                        <div className="flex gap-4 mt-6">
+                        {/* Social */}
+                        <div className="flex gap-4 mt-8">
                             <a
                                 href="#"
-                                className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-[#8b5e3c] hover:text-white transition"
+                                className="w-11 h-11 rounded-full bg-[#24211D] flex items-center justify-center hover:bg-[#B08968] hover:text-[#1C1A17] transition"
                             >
                                 <Instagram size={18} />
                             </a>
                             <a
                                 href="#"
-                                className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-[#8b5e3c] hover:text-white transition"
+                                className="w-11 h-11 rounded-full bg-[#24211D] flex items-center justify-center hover:bg-[#B08968] hover:text-[#1C1A17] transition"
                             >
                                 <Facebook size={18} />
                             </a>
@@ -40,50 +41,53 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-sm font-semibold mb-5 uppercase tracking-wide">
-                            Quick Links
+                        <h3 className="text-xs font-semibold mb-6 uppercase tracking-widest text-[#B08968]">
+                            Explore
                         </h3>
-                        <ul className="space-y-3 text-sm text-gray-600">
-                            {
-                                footerLinks.map((items)=>(
-                                    <Link key={items.id} to={items.link}><li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
-                                ))
-
-                            }
-                            
-                            
+                        <ul className="space-y-4 text-sm text-[#A89F94]">
+                            {footerLinks.map((item) => (
+                                <li key={item.id}>
+                                    <Link
+                                        to={item.link}
+                                        className="hover:text-[#EDE6DD] transition"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Support */}
                     <div>
-                        <h3 className="text-sm font-semibold mb-5 uppercase tracking-wide">
+                        <h3 className="text-xs font-semibold mb-6 uppercase tracking-widest text-[#B08968]">
                             Support
                         </h3>
-                        <ul className="space-y-3 text-sm text-gray-600">
-                            {
-                                supportLinks.map((items)=>(
-                                    <Link key={items.id} to={items.link}> <li className="hover:text-[#8b5e3c] cursor-pointer">{items.name}</li></Link>
-
-                                ))
-                            }
-                            
-                           
-                            
+                        <ul className="space-y-4 text-sm text-[#A89F94]">
+                            {supportLinks.map((item) => (
+                                <li key={item.id}>
+                                    <Link
+                                        to={item.link}
+                                        className="hover:text-[#EDE6DD] transition"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
-                {/* Divider */}
-                <div className="border-t my-10" />
+                {/* Soft Divider */}
+                <div className="my-16 h-px bg-gradient-to-r from-transparent via-[#3A342C] to-transparent" />
 
-                {/* Bottom Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                {/* Bottom */}
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#A89F94] tracking-wide">
                     <p>
                         © {new Date().getFullYear()} creativeCrafty. All rights reserved.
                     </p>
-                    <p className="tracking-wide">
-                        Crafted with ❤️ for handmade lovers
+                    <p>
+                        Thoughtfully crafted for lovers of handmade beauty
                     </p>
                 </div>
 
