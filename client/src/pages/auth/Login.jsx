@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import AuthLayout from "../../components/auth/AuthLayout";
 import Navbar from "../../components/common/Navbar";
+import Footer from "../../components/common/Footer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,8 +20,10 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gradient-to-br from-[#738994] to-[#f4e1c1] flex flex-col">
-      <Navbar />
+      
 
       <div className="flex-grow flex items-center justify-center px-4">
         <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
@@ -77,7 +80,11 @@ const Login = () => {
           </p>
         </div>
       </div>
+      
     </div>
+    <Footer/>
+    </>
+    
   );
 };
 
