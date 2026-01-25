@@ -18,7 +18,7 @@ const Register = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-[#fdf6e3] to-[#f4e1c1] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#738994] to-[#f4e1c1] flex items-center justify-center px-4">
         <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
           <h2 className="text-3xl font-semibold text-[#3b2f2f] text-center mb-6 tracking-wide">
             Create Account
