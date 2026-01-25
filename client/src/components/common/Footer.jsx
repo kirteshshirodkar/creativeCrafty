@@ -4,7 +4,7 @@ import { footerLinks, supportLinks } from "../../constants";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#1C1A17] text-[#EDE6DD] mt-24">
+        <footer className="bg-[#1C1A17] text-[#EDE6DD] ">
             <div className="max-w-7xl mx-auto px-6 py-20">
 
                 {/* Top Section */}
