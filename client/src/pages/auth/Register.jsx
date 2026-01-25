@@ -14,50 +14,65 @@ const Register = () => {
   };
 
   return (
-    <AuthLayout title="Create an Account">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Full Name"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+    <div className="min-h-screen bg-gradient-to-br from-[#fdf6e3] to-[#f4e1c1] flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <h2 className="text-3xl font-semibold text-[#3b2f2f] text-center mb-6 tracking-wide">
+          Create Account
+        </h2>
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b5e3c]"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <form onSubmit={handleSubmit} className="space-y-5">
 
-        <button
-          type="submit"
-          className="w-full bg-[#8b5e3c] text-white py-2 rounded-lg hover:bg-[#734c32] transition"
-        >
-          Register
-        </button>
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full px-5 py-3 rounded-xl bg-white/30 placeholder-[#8c6d4b] text-[#3b2f2f]
+            focus:outline-none focus:ring-2 focus:ring-[#bfa24d]
+            border border-white/30 backdrop-blur-sm transition"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
-        <p className="text-center text-sm">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-5 py-3 rounded-xl bg-white/30 placeholder-[#8c6d4b] text-[#3b2f2f]
+            focus:outline-none focus:ring-2 focus:ring-[#bfa24d]
+            border border-white/30 backdrop-blur-sm transition"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-5 py-3 rounded-xl bg-white/30 placeholder-[#8c6d4b] text-[#3b2f2f]
+            focus:outline-none focus:ring-2 focus:ring-[#bfa24d]
+            border border-white/30 backdrop-blur-sm transition"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-[#bfa24d] hover:bg-[#a88f3b]
+            text-[#3b2f2f] font-semibold shadow-lg transition transform hover:scale-[1.03]"
+          >
+            Create Account
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-[#3b2f2f] mt-5">
           Already have an account?{" "}
-          <Link to="/" className="text-[#8b5e3c] font-medium">
+          <Link to="/" className="text-[#bfa24d] font-medium hover:underline">
             Login
           </Link>
         </p>
-      </form>
-    </AuthLayout>
+      </div>
+    </div>
   );
 };
 
