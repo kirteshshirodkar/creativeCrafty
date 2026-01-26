@@ -3,21 +3,41 @@ import { FcGoogle } from "react-icons/fc";
 import AuthLayout from "../../components/auth/AuthLayout";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ email, password });
-    // Firebase login logic here
-  };
 
-  const handleGoogleLogin = () => {
-    console.log("Google login clicked");
-    // Add Google login logic here
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    toast.success("Login successful!");
+    navigate("/");   // Home page
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+
+
+ const handleGoogleLogin = async () => {
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+    toast.success("Google Login successful!");
+    navigate("/");
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
 
   return (
     <>

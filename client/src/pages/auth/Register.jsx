@@ -3,17 +3,40 @@ import { Link, Navigate } from "react-router-dom";
 import AuthLayout from "../../components/auth/AuthLayout";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ name, email, password });
-    // Firebase register logic here
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const userCredential =
+      await createUserWithEmailAndPassword(auth, email, password);
+
+    await setDoc(doc(db, "users", userCredential.user.uid), {
+      name: name,
+      email: email,
+      createdAt: new Date()
+    });
+
+    toast.success("Account created successfully!");
+    navigate("/");
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+
+
 
   return (
     <>
