@@ -6,6 +6,7 @@ import Contact from "../pages/user/Contact";
 import About from "../pages/user/About";
 import Products from "../pages/user/Products";
 import ScrollToTop from "../components/common/ScrollToTop";
+import ProductDetails from "../pages/user/ProductDetails";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/productDetails" element={<ProductDetails/>} />
       </Routes>
     </>
   );

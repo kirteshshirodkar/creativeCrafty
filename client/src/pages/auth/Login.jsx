@@ -7,7 +7,8 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 
 import { auth } from "../../firebase/firebaseConfig";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,21 @@ const Login = () => {
  const handleGoogleLogin = async () => {
   try {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    const result = await signInWithPopup(auth, provider);
+
+    const user = result.user;
+
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      await setDoc(docRef, {
+        name: user.displayName,
+        email: user.email,
+        createdAt: new Date(),
+      });
+    }
+
     toast.success("Google Login successful!");
     navigate("/");
   } catch (error) {

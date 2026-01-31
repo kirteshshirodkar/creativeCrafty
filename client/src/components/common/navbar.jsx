@@ -97,7 +97,9 @@ export default function Navbar() {
               >
                 {user ? (
                   <span className="font-semibold uppercase">
-                    {userData?.name?.[0]}
+                    {(userData?.name || user?.displayName || user?.email)?.[0]}
+
+
 
                   </span>
                 ) : (
@@ -114,7 +116,8 @@ export default function Navbar() {
                 <div className="absolute right-0 mt-3 w-48 bg-white rounded-2xl shadow-xl border overflow-hidden">
                   {user && (
                     <div className="px-4 py-3 text-sm font-semibold border-b">
-                     {userData?.name}
+                     {userData?.name || user?.displayName || user?.email}
+
 
                     </div>
                   )}
