@@ -1,7 +1,7 @@
-import { MoreProducts } from "../../components/product/MoreProducts";
-import { ProductInformation } from "../../components/product/ProductInformation";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
+import { ProductInformation } from "../../components/product/ProductInformation";
+import { MoreProducts } from "../../components/product/MoreProducts";
 
 const moreProducts = [
   {
@@ -28,13 +28,34 @@ export default function ProductDetails() {
   return (
     <>
       <Navbar />
-      <div className="bg-[#faf9f7] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 py-30">
+
+      <main className="bg-[#faf9f7] text-[#2b2b2b]">
+        {/* PRODUCT INFO */}
+        <section className="max-w-7xl mx-auto px-6 pt-32 pb-36">
           <ProductInformation />
-          <MoreProducts products={moreProducts} />
+        </section>
+
+        {/* DIVIDER */}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="h-px bg-black/10" />
         </div>
-      </div>
-      <Footer/>
+
+        {/* MORE PRODUCTS */}
+        <section className="max-w-7xl mx-auto px-6 py-36">
+          <div className="mb-20 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-[#2b2b2b]/50 mb-4">
+              You may also like
+            </p>
+            <h2 className="text-3xl font-medium">
+              Curated for a refined lifestyle
+            </h2>
+          </div>
+
+          <MoreProducts products={moreProducts} />
+        </section>
+      </main>
+
+      <Footer />
     </>
   );
 }

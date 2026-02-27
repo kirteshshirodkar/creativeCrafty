@@ -5,68 +5,57 @@ import product2 from "../../assets/images/product2.jpg";
 import product3 from "../../assets/images/product3.jpg";
 
 const products = [
-    {
-        id: 1,
-        name: "Handcrafted Leather Bag",
-        price: "₹3,499",
-        image: product1,
-    },
-    {
-        id: 2,
-        name: "Minimal Wooden Watch",
-        price: "₹5,999",
-        image: product2,
-    },
-    {
-        id: 3,
-        name: "Comfort Craft Sneakers",
-        price: "₹4,299",
-        image: product3,
-    },
+  {
+    id: 1,
+    name: "Handcrafted Leather Bag",
+    price: "₹3,499",
+    image: product1,
+  },
+  {
+    id: 2,
+    name: "Minimal Wooden Watch",
+    price: "₹5,999",
+    image: product2,
+  },
+  {
+    id: 3,
+    name: "Comfort Craft Sneakers",
+    price: "₹4,299",
+    image: product3,
+  },
 ];
 
 const ProductSection = () => {
-    return (
+  return (
+    <section className="bg-[#faf9f7] py-36">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <section className="bg-[#f4f4f4] py-28">
-            <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-24 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2b2b2b]/50 mb-4">
+            Featured Collection
+          </p>
 
-                {/* Intro Text */}
-                <div className="max-w-2xl mb-12">
-                    <p className="text-sm uppercase tracking-widest text-[#8b5e3c] mb-3">
-                        Crafted with Care
-                    </p>
-                    <h2 className="text-3xl font-semibold text-gray-900 leading-tight">
-                        Thoughtfully made products for everyday elegance
-                    </h2>
-                    <p className="mt-4 text-gray-600 text-sm leading-relaxed">
-                        Each piece in our collection is handcrafted by skilled artisans,
-                        blending traditional techniques with modern design to bring you
-                        products that last and inspire.
-                    </p>
-                </div>
+          <h2 className="text-4xl font-semibold text-[#2b2b2b] leading-tight">
+            Objects crafted for modern living
+          </h2>
 
-                {/* Boxed Container */}
-                <div
-                    className="
-        bg-white
-        border border-gray-200
-        rounded-2xl
-        shadow-sm
-        px-10 py-16
-      "
-                >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-                        {products.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </div>
-                </div>
+          <p className="mt-6 text-[#2b2b2b]/65 max-w-xl">
+            Elevated essentials created with timeless materials and
+            thoughtful design — made to be lived with.
+          </p>
+        </div>
 
-            </div>
-        </section>
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 items-end">
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[1]} featured />
+          <ProductCard product={products[2]} />
+        </div>
 
-    );
+      </div>
+    </section>
+  );
 };
 
 export default ProductSection;

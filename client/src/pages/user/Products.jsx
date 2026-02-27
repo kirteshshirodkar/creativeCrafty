@@ -34,46 +34,52 @@ export default function Products() {
       : productsData.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="bg-[#faf9f7] text-[#2b2b2b]">
+    <>
       <Navbar />
 
-      {/* PAGE HEADER */}
-      <section className="max-w-7xl mx-auto px-6 pt-28 pb-14 text-center">
-        <p className="uppercase tracking-[0.3em] text-xs text-gray-500 mb-4">
-          Curated Collection
-        </p>
-        <h1 className="text-4xl md:text-5xl font-serif font-medium">
-          Crafted with Intention
-        </h1>
-        <p className="mt-6 text-gray-600 max-w-xl mx-auto text-sm leading-relaxed">
-          Discover thoughtfully designed pieces that blend tradition,
-          craftsmanship, and modern elegance.
-        </p>
-      </section>
+      <main className="bg-[#faf9f7] text-[#2b2b2b]">
+        {/* PAGE INTRO */}
+        <section className="max-w-7xl mx-auto px-6 pt-32 pb-24">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2b2b2b]/50 mb-4">
+            Curated Collection
+          </p>
+          <h1 className="text-4xl md:text-5xl font-medium leading-tight">
+            Objects crafted with intention
+          </h1>
+          <p className="mt-6 max-w-xl text-[#2b2b2b]/65 text-sm leading-relaxed">
+            Discover thoughtfully designed pieces that blend tradition,
+            craftsmanship, and modern form — made to last.
+          </p>
+        </section>
 
-      {/* CATEGORY FILTER */}
-      <section className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-center gap-10 border-b border-gray-200 pb-6 mb-16">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`text-sm tracking-wide transition relative
-                ${selectedCategory === category
-                  ? "text-black after:absolute after:left-0 after:-bottom-2 after:w-full after:h-[1px] after:bg-black"
-                  : "text-gray-500 hover:text-black"
-                }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+        {/* FILTERS */}
+        <section className="max-w-7xl mx-auto px-6 mb-24">
+          <div className="flex flex-wrap gap-6 border-b border-black/10 pb-6">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`
+                  text-sm tracking-wide transition relative
+                  ${selectedCategory === category
+                    ? "text-[#2b2b2b] after:absolute after:left-0 after:-bottom-2 after:w-full after:h-[1px] after:bg-[#2b2b2b]"
+                    : "text-[#2b2b2b]/50 hover:text-[#2b2b2b]"
+                  }
+                `}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </section>
 
-        {/* PRODUCT GRID */}
-        <ProductGrid products={filteredProducts} />
-      </section>
+        {/* GRID */}
+        <section className="max-w-7xl mx-auto px-6 pb-40">
+          <ProductGrid products={filteredProducts} />
+        </section>
+      </main>
 
       <Footer />
-    </div>
+    </>
   );
 }
